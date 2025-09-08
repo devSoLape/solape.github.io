@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>$SOLAPE — Solana Ape Coin</title>
+  <meta name="description" content="$SOLAPE is a community coin on Solana. One‑pager website template." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #07070a;
+      --card: rgba(255,255,255,0.06);
+      --text: #e8e8f0;
+      --muted: #b7b7c9;
+      --accent1: #14f195; /* Solana-ish green */
+      --accent2: #a962ff; /* Solana-ish purple */
+      --accent3: #00c2ff; /* cyan */
+      --radius: 20px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin:0; padding:0; background: var(--bg); color: var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+    a { color: inherit; text-decoration: none; }
+
+    /* Gradient grid background */
+    .bg {
+      position: fixed; inset: 0; z-index: -1; pointer-events: none;
+      background:
+        radial-gradient(60vmax 60vmax at 10% 10%, rgba(20,241,149,.16), transparent 60%),
+        radial-gradient(60vmax 60vmax at 90% 20%, rgba(169,98,255,.16), transparent 60%),
+        radial-gradient(60vmax 60vmax at 50% 90%, rgba(0,194,255,.12), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,0) 20%);
+    }
+
+    header {
+      max-width: 1100px; margin: 0 auto; padding: 28px 20px; display:flex; align-items:center; justify-content: space-between;
+    }
+    .brand { display:flex; align-items:center; gap: 12px; font-weight: 800; letter-spacing: .5px; }
+    .brand img { width: 44px; height: 44px; object-fit: cover; border-radius: 12px; box-shadow: var(--shadow); }
+    .badge { padding: 6px 10px; border-radius: 999px; font-size: 12px; background: linear-gradient(135deg, var(--accent1), var(--accent2)); color:#0a0a0f; font-weight:800; }
+
+    .hero { max-width: 1100px; margin: 30px auto 0; padding: 0 20px 40px; display:grid; grid-template-columns: 1.15fr 1fr; gap: 28px; align-items:center; }
+    @media (max-width: 900px) { .hero { grid-template-columns: 1fr; text-align:center; } header { justify-content:center; } }
+
+    .hero h1 { font-size: clamp(40px, 6vw, 66px); line-height: 1.05; margin: 6px 0 12px; }
+    .gradient-text { background: linear-gradient(90deg, var(--accent1), var(--accent3), var(--accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .subtitle { color: var(--muted); font-size: clamp(16px, 2.2vw, 18px); }
+
+    .cta { display:flex; gap:12px; margin-top: 22px; flex-wrap: wrap; justify-content: center; }
+    .btn {
+      padding: 14px 18px; border-radius: 14px; font-weight: 700; border: 1px solid rgba(255,255,255,.12);
+      background: linear-gradient(135deg, rgba(20,241,149,.12), rgba(169,98,255,.12));
+      backdrop-filter: blur(6px);
+      box-shadow: var(--shadow);
+      transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease;
+      display:inline-flex; gap:10px; align-items:center;
+    }
+    .btn:hover { transform: translateY(-2px); border-color: rgba(255,255,255,.25); }
+    .btn.primary { background: linear-gradient(135deg, var(--accent1), var(--accent2)); color: #08080c; border-color: transparent; }
+
+    .card { background: var(--card); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); }
+
+    .graphic { display:grid; place-items:center; }
+    .graphic img { width: min(520px, 90%); border-radius: 18px; }
+
+    .grid { max-width: 1100px; margin: 18px auto; padding: 0 20px; display:grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+
+    .label { color: var(--muted); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+
+    .contract { display:flex; gap: 10px; align-items:center; flex-wrap: wrap; }
+    .chip { padding: 10px 12px; border-radius: 12px; border: 1px dashed rgba(255,255,255,.2); background: rgba(255,255,255,.03); }
+
+    footer { max-width: 1100px; margin: 30px auto 60px; padding: 0 20px; display:flex; justify-content: space-between; align-items:center; gap: 12px; flex-wrap: wrap; color: var(--muted); }
+
+    .links { display:flex; flex-wrap: wrap; gap: 10px; }
+    .links a { padding: 10px 12px; border-radius: 12px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); }
+
+    .notice { font-size: 12px; color: var(--muted); opacity: .85; }
+    .sep { height:1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,.08), transparent); margin: 22px 0; }
+  </style>
+</head>
+<body>
+  <div class="bg" aria-hidden="true"></div>
+
+  <header>
+    <div class="brand">
+      <!-- Replace with your logo image (the repo includes Apecoin on Solana.jpeg). -->
+      <img src="Apecoin on Solana.jpeg" alt="$SOLAPE logo" />
+      <span>$SOLAPE</span>
+      <span class="badge">Solana</span>
+    </div>
+    <a class="btn" href="#buy">Buy Now</a>
+  </header>
+
+  <section class="hero" id="home">
+    <div>
+      <p class="label">Introducing</p>
+      <h1><span class="gradient-text">$SOLAPE</span> — the Ape of Solana</h1>
+      <p class="subtitle">A crisp, single‑file landing page you can drop on any static host. Edit the text, swap the image, and you're live.</p>
+
+      <div class="sep"></div>
+
+      <div class="contract">
+        <div>
+          <div class="label">Contract Address</div>
+          <div class="chip mono" id="ca">5N5BJQ78bvCiPCVcPS3HkHiaJtCAP42porSt5v2mpump</div>
+        </div>
+        <button class="btn" id="copy">Copy</button>
+        <a class="btn" target="_blank" rel="noopener" href="https://solscan.io/token/5N5BJQ78bvCiPCVcPS3HkHiaJtCAP42porSt5v2mpump">View on Solscan</a>
+      </div>
+
+      <div class="cta" id="buy">
+        <a class="btn primary" target="_blank" rel="noopener" href="https://raydium.io/swap/?inputCurrency=sol&outputCurrency=5N5BJQ78bvCiPCVcPS3HkHiaJtCAP42porSt5v2mpump">Swap on Raydium</a>
+        <a class="btn" target="_blank" rel="noopener" href="https://jup.ag/swap/SOL-5N5BJQ78bvCiPCVcPS3HkHiaJtCAP42porSt5v2mpump">Swap on Jupiter</a>
+      </div>
+    </div>
+
+    <div class="graphic">
+      <div class="card">
+        <img src="Apecoin on Solana.jpeg" alt="$SOLAPE artwork" />
+      </div>
+    </div>
+  </section>
+
+  <section class="grid" id="about">
+    <div class="card">
+      <div class="label">About</div>
+      <h3>What is $SOLAPE?</h3>
+      <p>$SOLAPE is a playful community coin on the Solana blockchain. This page is a fast, lightweight one‑pager you can deploy in seconds.</p>
+    </div>
+
+    <div class="card">
+      <div class="label">Tokenomics</div>
+      <h3>Simple & Clean</h3>
+      <ul>
+        <li>Total Supply: <strong class="mono">1,000,000,000</strong> (edit as needed)</li>
+        <li>Taxes: <strong>0%</strong> (placeholder)</li>
+        <li>Treasury/LP/Marketing: <strong>TBD</strong></li>
+      </ul>
+      <p class="notice">Update these values to match the actual token configuration.</p>
+    </div>
+
+    <div class="card">
+      <div class="label">How to Buy</div>
+      <h3>3 quick steps</h3>
+      <ol>
+        <li>Install a Solana wallet (Phantom, Backpack, etc.).</li>
+        <li>Fund with SOL.</li>
+        <li>Open Raydium or Jupiter, paste the CA, and swap for <strong>$SOLAPE</strong>.</li>
+      </ol>
+    </div>
+  </section>
+
+  <footer>
+    <div class="notice">© <span id="year"></span> $SOLAPE — community project. Not financial advice.</div>
+    <div class="links">
+      <a href="#" target="_blank" rel="noopener">Twitter/X</a>
+      <a href="#" target="_blank" rel="noopener">Telegram</a>
+      <a href="#" target="_blank" rel="noopener">Discord</a>
+    </div>
+  </footer>
+
+  <script>
+    // Copy CA
+    document.getElementById('copy').addEventListener('click', () => {
+      const ca = document.getElementById('ca').textContent.trim();
+      navigator.clipboard.writeText(ca).then(() => {
+        const btn = document.getElementById('copy');
+        const old = btn.textContent;
+        btn.textContent = 'Copied!';
+        setTimeout(() => (btn.textContent = old), 1200);
+      });
+    });
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
