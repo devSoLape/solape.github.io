@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>$SOLAPE — Solana Ape MeMe Coin</title>
-  <meta name="description" content="$SOLAPE is a community coin on Solana. One‑pager website template." />
+  <meta name="description" content="$SOLAPE is a community coin on Solana. One-pager website template." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -81,6 +81,38 @@
 
     .notice { font-size: 12px; color: var(--muted); opacity: .85; }
     .sep { height:1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,.08), transparent); margin: 22px 0; }
+
+    /* Gallery styles */
+    .gallery {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      object-fit: cover;
+      box-shadow: var(--shadow);
+    }
+    @media (max-width: 900px) {
+      .gallery { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .gallery { grid-template-columns: 1fr; }
+    }
+    .gallery-title {
+      max-width: 1100px;
+      margin: 30px auto 10px;
+      padding: 0 20px;
+    }
+    .gallery-title h2 {
+      font-size: clamp(28px, 4vw, 36px);
+      margin: 0 0 12px;
+    }
   </style>
 </head>
 <body>
@@ -88,7 +120,6 @@
 
   <header>
     <div class="brand">
-      <!-- Replace with your logo image (the repo includes Apecoin on Solana.jpeg). -->
       <img src="Solana.jpeg" alt="$SOLAPE logo" />
       <span>$SOLAPE</span>
       <span class="badge">Solana</span>
@@ -155,14 +186,27 @@
     </div>
   </section>
 
-<footer>
-  <div class="notice">© <span id="year"></span> $SOLAPE — community project. Not financial advice.</div>
-  <div class="links">
-    <a href="https://x.com/SoLApeCoins" target="_blank" rel="noopener">Twitter/X</a>
-    <a href="https://t.me/YourTelegramHandle" target="_blank" rel="noopener">Telegram</a>
-    <a href="https://x.com/i/communities/1963929136126173220" target="_blank" rel="noopener">X Community</a>
+  <!-- Community Memes Gallery -->
+  <div class="gallery-title">
+    <h2>Community Memes</h2>
   </div>
-</footer>
+  <section class="gallery" id="gallery">
+    <img src="gallery1.jpg" alt="Community Meme 1">
+    <img src="gallery2.jpg" alt="Community Meme 2">
+    <img src="gallery3.jpg" alt="Community Meme 3">
+    <img src="gallery4.jpg" alt="Community Meme 4">
+    <img src="gallery5.jpg" alt="Community Meme 5">
+    <img src="gallery6.jpg" alt="Community Meme 6">
+  </section>
+
+  <footer>
+    <div class="notice">© <span id="year"></span> $SOLAPE — community project. Not financial advice.</div>
+    <div class="links">
+      <a href="https://x.com/SoLApeCoins" target="_blank" rel="noopener">Twitter/X</a>
+      <a href="https://t.me/YourTelegramHandle" target="_blank" rel="noopener">Telegram</a>
+      <a href="https://x.com/i/communities/1963929136126173220" target="_blank" rel="noopener">X Community</a>
+    </div>
+  </footer>
 
   <script>
     // Copy CA
@@ -180,3 +224,4 @@
   </script>
 </body>
 </html>
+
